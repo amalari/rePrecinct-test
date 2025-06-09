@@ -34,7 +34,5 @@ applications:
       phases:
         build:
           commands:
-            # Build API and its dependencies using turbo
-            - cd packages/api
             # Deploy backend with Amplify Gen 2
-            - pnpm dlx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+            - pnpm ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID

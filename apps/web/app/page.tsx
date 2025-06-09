@@ -1,6 +1,6 @@
 "use client";
 import { Amplify } from "aws-amplify";
-import outputs from "@workspace/api/amplify_outputs.json";
+import outputs from "@/amplify_outputs.json";
 import { AttributeSelector } from "@workspace/feature/attribute/components/AttributeSelector";
 
 Amplify.configure(outputs);
