@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/providers/themeProvider"
 import { QueryProvider } from "@/providers/queryProvider"
+import { MainNav } from "@/components/MainNav"
+
 const fontSans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -23,7 +25,14 @@ export default function RootLayout({
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
         <QueryProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <div className="min-h-screen flex flex-col">
+              <MainNav />
+              <main className="flex-1">
+                {children}
+              </main>
+            </div>
+          </ThemeProvider>
         </QueryProvider>
       </body>
     </html>
