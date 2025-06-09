@@ -3,6 +3,7 @@ import { validateHTMLInjection, validateSQLInjection } from "@workspace/validato
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 
 const checkForInjection = (data: unknown, path = ''): { isValid: boolean; message: string } | null => {
+  console.log({ data })
   if (data === null || data === undefined) {
     return null;
   }
@@ -38,20 +39,15 @@ export const injectionGuard = (): MiddlewareObj<APIGatewayProxyEventV2, any> => 
   before: async (request) => {
     const event = request.event;
     // Check both body and query params
-    let dataToCheck: any = {};
     if (event.body) {
-      try {
-        dataToCheck = typeof event.body === "string" ? JSON.parse(event.body) : event.body;
-      } catch {
-        dataToCheck = event.body;
-      }
-      const injectionResult = checkForInjection(dataToCheck, "body");
+      const injectionResult = checkForInjection(event.body, "body");
       if (injectionResult && !injectionResult.isValid) {
         request.response = {
           statusCode: 400,
           body: JSON.stringify({ message: injectionResult.message }),
         };
-        return;
+        console.warn(injectionResult.message);
+        return request.response;
       }
     }
     if (event.queryStringParameters) {
@@ -61,7 +57,8 @@ export const injectionGuard = (): MiddlewareObj<APIGatewayProxyEventV2, any> => 
           statusCode: 400,
           body: JSON.stringify({ message: injectionResult.message }),
         };
-        return;
+        console.warn(injectionResult.message);
+        return request.response;
       }
     }
   }
