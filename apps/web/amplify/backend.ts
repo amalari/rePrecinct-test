@@ -1,4 +1,4 @@
-import { defineBackend, defineData } from '@aws-amplify/backend';
+import { defineBackend } from '@aws-amplify/backend';
 import { HttpLambdaIntegration } from "aws-cdk-lib/aws-apigatewayv2-integrations";
 import {
   CorsHttpMethod,
@@ -11,7 +11,6 @@ import { data } from './data/resource';
 import { attributeApi } from './attribute/resource';
 import { auth } from './auth/resource';
 
-// console.log({ env })
 /**
  * @see https://docs.amplify.aws/react/build-a-backend/ to add storage, functions, and more
  */

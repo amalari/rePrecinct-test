@@ -116,52 +116,6 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
 
-  packages/api:
-    dependencies:
-      '@middy/core':
-        specifier: ^6.3.1
-        version: 6.3.1
-      '@middy/http-cors':
-        specifier: ^6.3.1
-        version: 6.3.1
-      '@middy/http-event-normalizer':
-        specifier: ^6.3.1
-        version: 6.3.1
-      '@middy/http-json-body-parser':
-        specifier: ^6.3.1
-        version: 6.3.1
-      '@workspace/validator':
-        specifier: workspace:*
-        version: link:../validator
-      aws-amplify:
-        specifier: ^6.15.0
-        version: 6.15.0
-      valibot:
-        specifier: ^1.1.0
-        version: 1.1.0(typescript@5.7.3)
-    devDependencies:
-      '@aws-amplify/backend':
-        specifier: ^1.16.1
-        version: 1.16.1(@aws-sdk/client-cloudformation@3.823.0)(@aws-sdk/client-s3@3.824.0)(@aws-sdk/types@3.821.0)(aws-cdk-lib@2.189.1(constructs@10.4.2))(constructs@10.4.2)(zod@3.24.2)
-      '@aws-amplify/backend-cli':
-        specifier: ^1.7.2
-        version: 1.7.2(@aws-sdk/types@3.821.0)(@types/node@20.17.19)(aws-cdk-lib@2.189.1(constructs@10.4.2))(constructs@10.4.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
-      aws-cdk-lib:
-        specifier: 2.189.1
-        version: 2.189.1(constructs@10.4.2)
-      constructs:
-        specifier: ^10.0.0
-        version: 10.4.2
-      esbuild:
-        specifier: ^0.25.5
-        version: 0.25.5
-      tsx:
-        specifier: ^4.19.4
-        version: 4.19.4
-      typescript:
-        specifier: ^5.0.0
-        version: 5.7.3
-
   packages/eslint-config:
     devDependencies:
       '@next/eslint-plugin-next':
@@ -221,9 +175,6 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: ^5.80.6
         version: 5.80.6(@tanstack/react-query@5.80.6(react@19.0.0))(react@19.0.0)
-      '@workspace/api':
-        specifier: workspace:*
-        version: link:../api
       '@workspace/ui':
         specifier: workspace:*
         version: link:../ui
