@@ -125,3 +125,5 @@
     @apply bg-background text-foreground;
   }
 }
+
+@import '@scalar/api-reference/style.css';
