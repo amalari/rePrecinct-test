@@ -5,7 +5,6 @@
     "paths": {
       "@workspace/feature/*": ["./src/*"],
       "@workspace/ui/*": ["../../packages/ui/src/*"],
-      "@workspace/api/*": ["../../packages/api/*"]
     }
   },
   "include": ["."],

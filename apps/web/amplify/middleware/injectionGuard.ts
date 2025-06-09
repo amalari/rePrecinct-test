@@ -2,7 +2,6 @@ import { MiddlewareObj } from "@middy/core";
 import { validateHTMLInjection, validateSQLInjection } from "@workspace/validator";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 
-// Your original checkForInjection function
 const checkForInjection = (data: unknown, path = ''): { isValid: boolean; message: string } | null => {
   if (data === null || data === undefined) {
     return null;

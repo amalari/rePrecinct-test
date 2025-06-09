@@ -142,7 +142,18 @@ interface MultiSelectProps
    * @param searchValue - The current value of the search input.
    */
   onSearch?: (searchValue: string) => void;
+  /**
+   * If true, allows adding new options by typing in the search input.
+   * When enabled and no options match the search, an "Add" button will appear.
+   * Optional, defaults to false.
+   */
   allowAdd?: boolean;
+  
+  /**
+   * Callback function that's called when a user clicks the "Add" button.
+   * The function receives the current search value as an argument.
+   * @param value - The value to be added as a new option.
+   */
   onAdd?: (value: string) => void;
 }
 
@@ -151,9 +162,9 @@ const MultiSelectEmpty = ({ searchValue, onAdd }: { searchValue: string, onAdd?:
     <>
       <EmptyState title="No options found" />
       {searchValue && onAdd && (
-        <div className="flex justify-between items-center bg-neutral-200 m-2 p-2 pl-4 rounded-md">
+        <div className="flex justify-between items-center bg-muted text-foreground m-2 p-2 pl-4 rounded-md">
           <p>{searchValue}</p>
-          <Button size="sm" className="rounded-full" onClick={() => onAdd?.(searchValue)}>
+          <Button size="sm" variant="outline" className="rounded-full cursor-pointer" onClick={() => onAdd?.(searchValue)}>
             Add
           </Button>
         </div>
@@ -191,7 +202,6 @@ export const MultiSelect = React.forwardRef<
     const [cacheOptions, setCacheOptions] = React.useState(options);
     const [selectedValues, setSelectedValues] =
       React.useState<string[]>(value || defaultValue);
-    const [selectedLabels, setSelectedLabels] = React.useState<string[]>([]);
     const [isPopoverOpen, setIsPopoverOpen] = React.useState(false);
     const [searchValue, setSearchValue] = React.useState('');
 
