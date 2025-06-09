@@ -16,7 +16,6 @@ type GetAttributesResponse = {
     next: string | null;
 }
 export const getAttributes = async (params: GetAttributesParams) => {
-    console.log({ params })
     const res = await axios.get<GetAttributesResponse>(`${BASE_API_URL}/attribute`, {
         params
     });

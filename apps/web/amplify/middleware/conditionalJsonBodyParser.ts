@@ -1,4 +1,4 @@
-import { parseQueryParams } from "@/util/parseQueryParams";
+import { parseQueryParams } from "../util/parseQueryParams";
 import { MiddlewareObj } from "@middy/core";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 

@@ -1,5 +1,5 @@
 import { nonEmpty, object, pipe, string } from "valibot";
-import { RouteConfig } from "@/types/handler";
+import { RouteConfig } from "../../types/handler";
 
 const schema = object({
     buildingAttribute: pipe(

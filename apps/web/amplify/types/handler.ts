@@ -1,4 +1,4 @@
-import { Schema } from "@/data/resource";
+import { Schema } from "../data/resource";
 import { APIGatewayProxyEvent, APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from "aws-lambda";
 import { Client } from "aws-amplify/data";
 import { BaseSchema, InferOutput } from "valibot";

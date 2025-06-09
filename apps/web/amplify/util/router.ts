@@ -1,13 +1,13 @@
 import { BaseSchema, InferOutput, safeParse } from 'valibot';
 import type { APIGatewayProxyEventV2 } from 'aws-lambda';
-import { Handler, RouteConfig } from '@/types/handler';
+import { Handler, RouteConfig } from '../types/handler';
 import { generateClient } from 'aws-amplify/data';
-import { Schema } from '@/data/resource';
+import { Schema } from '../data/resource';
 import middy from '@middy/core';
 import httpEventNormalizer from '@middy/http-event-normalizer';
-import { injectionGuard } from '@/middleware/injectionGuard';
+import { injectionGuard } from '../middleware/injectionGuard';
 import cors from '@middy/http-cors'
-import { conditionalJsonBodyParser } from '@/middleware/conditionalJsonBodyParser';
+import { conditionalJsonBodyParser } from '../middleware/conditionalJsonBodyParser';
 
 export const router = <T extends BaseSchema<any, any, any>, Y extends BaseSchema<any, any, any>>({
     query,

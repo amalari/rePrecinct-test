@@ -1,4 +1,4 @@
-import { RouteConfig } from "@/types/handler";
+import { RouteConfig } from "../../types/handler";
 import { number, object, optional, string } from "valibot";
 
 const schema = object({
