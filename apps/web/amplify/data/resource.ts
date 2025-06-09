@@ -1,4 +1,4 @@
-import { TABLE_NAME as attributeTableName, attributeModel } from '../attribute/resource';
+import { TABLE_NAME as attributeTableName, attributeModel, attributeApi } from '../attribute/resource';
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 
 /*== STEP 1 ===============================================================
@@ -8,13 +8,13 @@ specifies that any unauthenticated user can "create", "read", "update",
 and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
-    .model({
-      content: a.string(),
-    })
-    .authorization((allow) => [allow.guest()]),
+  // Todo: a
+  //   .model({
+  //     content: a.string(),
+  //   })
+  //   .authorization((allow) => [allow.guest()]),
   [attributeTableName]: attributeModel,
-});
+}).authorization((allow) => [allow.resource(attributeApi)]);
 
 export type Schema = ClientSchema<typeof schema>;
 
