@@ -52,6 +52,7 @@ cd reprecnict
 ### 2. Install dependencies
 
 ```bash
+npm install -g pnpm
 pnpm install
 ```
 
@@ -59,7 +60,7 @@ pnpm install
 
 1. Install AWS Amplify CLI (if not already installed):
    ```bash
-   npm install -g @aws-amplify/cli
+   pnpm install -g @aws-amplify/cli
    ```
 
 2. Configure AWS Amplify:
@@ -68,21 +69,21 @@ pnpm install
    ```
    Follow the prompts to sign in to the AWS Management Console and configure the AWS CLI.
 
-### 4. Environment Setup
-
-1. Copy the example environment file:
-   ```bash
-   cp apps/web/amplify/.env.example apps/web/amplify/.env
-   ```
-
-2. Update the `.env` file with your AWS credentials and configuration.
-
 ## 🏃‍♂️ Running the Application
 
 ### Development Mode
 
 ```bash
 # From the root directory
+cd apps/web
+pnpm ampx sandbox
+```
+
+open another terminal
+
+```bash
+# From the root directory
+cd apps/web
 pnpm dev
 ```
 
